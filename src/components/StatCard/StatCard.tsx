@@ -19,7 +19,7 @@ const StatCard: React.FC<StatCardProps> = ({
   icon,
 }) => {
   return (
-    <Box className="p-6 bg-[#1e1e40] rounded-lg shadow-md flex flex-col gap-4">
+    <Box className="p-6 bg-[#0a1739] rounded-lg shadow-md flex flex-col gap-4">
       <Box className="flex items-center gap-2">
         {icon}
         <Typography variant="body1" className="text-white">

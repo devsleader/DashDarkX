@@ -2,7 +2,7 @@ import React from "react";
 import { Box, IconButton, Tooltip, Typography } from "@mui/material";
 import StatCard from "../StatCard/StatCard";
 import CountryFlagDropdown from "../FlagDropdown/CountryFlagDropdown";
-import { BsBellFill } from "react-icons/bs";
+import { BsArrowUpRight, BsBellFill } from "react-icons/bs";
 import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
 import { FaHeart } from "react-icons/fa";
 import { IoBagSharp, IoMenu } from "react-icons/io5";
@@ -12,6 +12,7 @@ import Logo from "../../assets/logo.png";
 import MyResponsiveRadialBar from "../RadialChart/RadialBarChart";
 import CustomDrawer from "../Drawer/Drawer";
 import { HiArrowNarrowDown } from "react-icons/hi";
+import MyResponsiveBar from "../BarChart/BarChart";
 
 const Dashboard: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -52,7 +53,7 @@ const Dashboard: React.FC = () => {
         </Box>
 
         {/* Save Products, Stock Products, etc. */}
-        <Box className="grid sm:grid-cols-2 gap-4 mt-4 lg:grid-cols-4">
+        <Box className="grid sm:grid-cols-2 gap-8 lg:grid-cols-4 px-4">
           <StatCard
             title="Save Products"
             value="50.8K"
@@ -84,18 +85,77 @@ const Dashboard: React.FC = () => {
         </Box>
 
         {/* Chart Section */}
-        <Box className=" bg-[#1e1e40] rounded-lg mt-4">
-          <Box className="flex items-center justify-between p-4">
-            <Typography variant="h6" className="text-white p-4">
-              Website Visitors
-            </Typography>
-            <button className="flex items-center gap-2 bg-[#0a1330] p-2 rounded-br-lg rounded-bl-lg text-white">
-              Export
-              <HiArrowNarrowDown />
-            </button>
+        <Box className="grid gap-8 lg:grid-cols-3 px-4 mt-4">
+          <Box className=" bg-[#0a1739] rounded-lg p-8 mt-4">
+            <Box className="flex items-center justify-between">
+              <Typography variant="h6" className="text-white ">
+                Website Visitors
+              </Typography>
+              <button className="flex items-center gap-2 bg-[#0a1330] px-4 py-2 rounded-lg text-white">
+                Export
+                <HiArrowNarrowDown />
+              </button>
+            </Box>
+            <Box className="h-[300px]">
+              <MyResponsiveRadialBar />
+            </Box>
+            <Box className="flex justify-between text-white">
+              <Box className="flex items-center gap-4">
+                <Box className="h-3 w-3 bg-[#cc3cfe] rounded-full"></Box>
+                <Typography>Organic</Typography>
+              </Box>
+              <Typography>80%</Typography>
+            </Box>
+            <Box className="flex justify-between text-white mt-4">
+              <Box className="flex items-center gap-4">
+                <Box className="h-3 w-3 bg-[#0f43fb] rounded-full"></Box>
+                <Typography>Social</Typography>
+              </Box>
+              <Typography>60%</Typography>
+            </Box>
+            <Box className="flex justify-between text-white mt-4">
+              <Box className="flex items-center gap-4">
+                <Box className="h-3 w-3 bg-[#00c2ff] rounded-full"></Box>
+                <Typography>Direct</Typography>
+              </Box>
+              <Typography>50%</Typography>
+            </Box>
           </Box>
-          <Box className="h-[350px]">
-            <MyResponsiveRadialBar />
+          <Box className="bg-[#0a1739] rounded-lg mt-4 col-span-2 p-8">
+            <Typography variant="h6" className="text-white">
+              Revenue by customer type
+            </Typography>
+            <Box className="flex items-center gap-8 mt-2">
+              <Box className="flex items-center gap-2">
+                <Typography variant="h4" className="text-white mt-2">
+                  $240.8K
+                </Typography>
+                <Typography
+                  variant="body2"
+                  className={`text-green-500 bg-green-300/20 px-1 border text-xs rounded-xs flex items-center gap-1`}
+                >
+                  14.8%
+                  <BsArrowUpRight />
+                </Typography>
+              </Box>
+              <Box className="flex text-white gap-4">
+                <Box className="flex items-center gap-2">
+                  <Box className="h-3 w-3 bg-[#cc3cfe] rounded-full"></Box>
+                  <Typography>Current Client</Typography>
+                </Box>
+                <Box className="flex items-center gap-2">
+                  <Box className="h-3 w-3 bg-[#0f43fb] rounded-full"></Box>
+                  <Typography>Subscribe</Typography>
+                </Box>
+                <Box className="flex items-center gap-2">
+                  <Box className="h-3 w-3 bg-[#00c2ff] rounded-full"></Box>
+                  <Typography>New Customer</Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box className="h-[450px]">
+              <MyResponsiveBar />
+            </Box>
           </Box>
         </Box>
       </Box>
