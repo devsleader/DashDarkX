@@ -35,20 +35,6 @@ const MyResponsiveBar = () => (
                 spacing: 10
             }
         ]}
-        // fill={[
-        //     {
-        //         match: {
-        //             id: 'New customers'
-        //         },
-        //         id: 'dots'
-        //     },
-        //     {
-        //         match: {
-        //             id: 'Subscribers'
-        //         },
-        //         id: 'lines'
-        //     }
-        // ]}
         borderColor={{
             from: 'color',
             modifiers: [

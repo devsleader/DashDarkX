@@ -8,7 +8,7 @@ function App() {
       <Grid item xs={2} display={{lg: "block", xs: "none"}}>
         <Sidebar />
       </Grid>
-      <Grid item lg={10} xs={12} className="flex-1">
+      <Grid item lg={10} xs={12}>
         <Dashboard />
       </Grid>
     </Grid>

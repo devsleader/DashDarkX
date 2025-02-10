@@ -94,11 +94,11 @@ export const barData = [
   },
   {
     month: "Aug",
-    "Current clients": 50,
+    "Current clients": 40,
     "Current clientsColor": "hsl(190, 70%, 50%)",
     Subscribers: 30,
     SubscribersColor: "hsl(264, 70%, 50%)",
-    "New customers": 70,
+    "New customers": 40,
     "New customersColor": "hsl(142, 70%, 50%)",
   },
   {

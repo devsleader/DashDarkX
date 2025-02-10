@@ -13,6 +13,11 @@ import MyResponsiveRadialBar from "../RadialChart/RadialBarChart";
 import CustomDrawer from "../Drawer/Drawer";
 import { HiArrowNarrowDown } from "react-icons/hi";
 import MyResponsiveBar from "../BarChart/BarChart";
+import CustomDatePicker from "../CustomDatePicker/CustomDatePicker";
+import IPhone from "../../assets/iphone.png";
+import Watch from "../../assets/watch.png";
+import CustomAreaChart from "../AreaChart/AreaChart";
+import OrdersTable from "../OrderTable/OrderTable";
 
 const Dashboard: React.FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -22,9 +27,8 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <Box className="flex flex-col md:flex-row">
-      <Box className="flex-1 p-4">
-        <Box className="flex items-center justify-between md:p-4">
+    <Box className="p-8 w-full bg-[#081025]">
+        <Box className="flex items-center justify-between ">
           <Typography
             variant="h5"
             className="text-white font-bold lg:block hidden"
@@ -53,7 +57,7 @@ const Dashboard: React.FC = () => {
         </Box>
 
         {/* Save Products, Stock Products, etc. */}
-        <Box className="grid sm:grid-cols-2 gap-8 lg:grid-cols-4 px-4">
+        <Box className="grid sm:grid-cols-2 gap-8 lg:grid-cols-4">
           <StatCard
             title="Save Products"
             value="50.8K"
@@ -85,18 +89,18 @@ const Dashboard: React.FC = () => {
         </Box>
 
         {/* Chart Section */}
-        <Box className="grid gap-8 lg:grid-cols-3 px-4 mt-4">
-          <Box className=" bg-[#0a1739] rounded-lg p-8 mt-4">
+        <Box className="grid gap-8 lg:grid-cols-3 mt-4">
+          <Box className=" bg-[#0a1739] rounded-lg p-8 mt-4 w-full">
             <Box className="flex items-center justify-between">
               <Typography variant="h6" className="text-white ">
                 Website Visitors
               </Typography>
-              <button className="flex items-center gap-2 bg-[#0a1330] px-4 py-2 rounded-lg text-white">
+              <button className="flex items-center gap-2 bg-[#0a1330] px-4 py-2 rounded-lg text-white cursor-pointer">
                 Export
                 <HiArrowNarrowDown />
               </button>
             </Box>
-            <Box className="h-[300px]">
+            <Box className="h-[350px] w-auto">
               <MyResponsiveRadialBar />
             </Box>
             <Box className="flex justify-between text-white">
@@ -106,14 +110,14 @@ const Dashboard: React.FC = () => {
               </Box>
               <Typography>80%</Typography>
             </Box>
-            <Box className="flex justify-between text-white mt-4">
+            <Box className="flex justify-between text-white mt-6">
               <Box className="flex items-center gap-4">
                 <Box className="h-3 w-3 bg-[#0f43fb] rounded-full"></Box>
                 <Typography>Social</Typography>
               </Box>
               <Typography>60%</Typography>
             </Box>
-            <Box className="flex justify-between text-white mt-4">
+            <Box className="flex justify-between text-white mt-6">
               <Box className="flex items-center gap-4">
                 <Box className="h-3 w-3 bg-[#00c2ff] rounded-full"></Box>
                 <Typography>Direct</Typography>
@@ -121,11 +125,11 @@ const Dashboard: React.FC = () => {
               <Typography>50%</Typography>
             </Box>
           </Box>
-          <Box className="bg-[#0a1739] rounded-lg mt-4 col-span-2 p-8">
-            <Typography variant="h6" className="text-white">
+          <Box className="bg-[#0a1739] rounded-lg mt-4 p-8 lg:col-span-2">
+            <Typography variant="h6" className="text-[#aeb9e1]">
               Revenue by customer type
             </Typography>
-            <Box className="flex items-center gap-8 mt-2">
+            <Box className="flex items-center gap-4 mt-2 w-full">
               <Box className="flex items-center gap-2">
                 <Typography variant="h4" className="text-white mt-2">
                   $240.8K
@@ -138,27 +142,79 @@ const Dashboard: React.FC = () => {
                   <BsArrowUpRight />
                 </Typography>
               </Box>
-              <Box className="flex text-white gap-4">
-                <Box className="flex items-center gap-2">
-                  <Box className="h-3 w-3 bg-[#cc3cfe] rounded-full"></Box>
-                  <Typography>Current Client</Typography>
+              <Box className="flex text-white gap-4 w-full">
+                <Box className="flex items-center gap-2 w-full">
+                  <Box className="h-2 w-2 bg-[#cc3cfe] rounded-full"></Box>
+                  <Typography variant="body2" className="text-[#aeb9e1]">
+                    Current Client
+                  </Typography>
                 </Box>
-                <Box className="flex items-center gap-2">
-                  <Box className="h-3 w-3 bg-[#0f43fb] rounded-full"></Box>
-                  <Typography>Subscribe</Typography>
+                <Box className="flex items-center gap-2 w-full">
+                  <Box className="h-2 w-2 bg-[#0f43fb] rounded-full"></Box>
+                  <Typography variant="body2" className="text-[#aeb9e1]">
+                    Subscribe
+                  </Typography>
                 </Box>
-                <Box className="flex items-center gap-2">
-                  <Box className="h-3 w-3 bg-[#00c2ff] rounded-full"></Box>
-                  <Typography>New Customer</Typography>
+                <Box className="flex items-center gap-2 w-full">
+                  <Box className="h-2 w-2 bg-[#00c2ff] rounded-full"></Box>
+                  <Typography variant="body2" className="text-[#aeb9e1]">
+                    New Customer
+                  </Typography>
                 </Box>
               </Box>
+              <CustomDatePicker />
             </Box>
-            <Box className="h-[450px]">
+            <Box className="h-[450px] w-auto">
               <MyResponsiveBar />
             </Box>
           </Box>
         </Box>
-      </Box>
+
+        <Box className="grid gap-8 lg:grid-cols-3 mt-4">
+          <Box className="bg-[#0a1739] rounded-lg p-8 mt-4 w-full flex flex-col gap-8">
+            <Typography variant="h6" className="text-white">
+              Products
+            </Typography>
+            <Box className="flex items-center justify-between">
+              <Typography variant="body2" className="text-white">
+                Products
+              </Typography>
+              <Typography variant="body2" className="text-white">
+                Price
+              </Typography>
+            </Box>
+            <Box className="flex items-center justify-between">
+              <Box className="flex items-center gap-4">
+                <img src={IPhone} alt="" className="object-contain h-12 w-12" />
+                <Typography variant="body2" className="text-white">
+                  iPhone 14 Pro Max <br />
+                  <span className="text-[#aeb9e1] text-xs">524 in stock</span>
+                </Typography>
+              </Box>
+              <Typography variant="body2" className="text-white">
+                $ 1,099.00
+              </Typography>
+            </Box>
+            <Box className="flex items-center justify-between">
+              <Box className="flex items-center gap-4">
+                <img src={Watch} alt="" className="object-contain h-12 w-12" />
+                <Typography variant="body2" className="text-white">
+                Apple Watch S8 <br />
+                  <span className="text-[#aeb9e1] text-xs">320 in stock</span>
+                </Typography>
+              </Box>
+              <Typography variant="body2" className="text-white">
+              $ 799.00
+              </Typography>
+            </Box>
+          </Box>
+          <Box className="bg-[#0a1739] rounded-lg mt-4 lg:col-span-2 p-8">
+            <CustomAreaChart/>
+          </Box>
+        </Box>
+        <Box className="bg-[#0a1739] rounded-lg p-8 mt-8">
+          <OrdersTable/>
+        </Box>
       <CustomDrawer open={open} toggleDrawer={toggleDrawer} />
     </Box>
   );
