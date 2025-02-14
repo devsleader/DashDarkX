@@ -22,16 +22,16 @@ const StatCard: React.FC<StatCardProps> = ({
     <Box className="p-6 bg-[#0a1739] rounded-lg shadow-md flex flex-col gap-4">
       <Box className="flex items-center gap-2">
         {icon}
-        <Typography variant="body1" className="text-[#aeb9e1]">
+        <Typography variant="body2" className="text-[#aeb9e1]">
           {title}
         </Typography>
       </Box>
       <Box className="flex items-center gap-2">
-        <Typography variant="h4" className="text-white mt-2">
+        <Typography variant="h5" className="text-white mt-2">
           {value}
         </Typography>
         <Typography
-          variant="body2"
+          variant="caption"
           className={`${
             positive
               ? "text-green-500 bg-green-300/20 "

@@ -27,30 +27,35 @@ const data = [
 const CustomAreaChart = () => {
   return (
     <Box className="rounded-md">
-      <Box className="flex justify-between items-center">
-        <Typography variant="h6" className="text-[#aeb9e1] flex gap-2 items-center">
-        <HiMiniClock />
-          Completed tasks over time
-        </Typography>
-        <CustomDatePicker />
-      </Box>
-      <Box className="flex items-center gap-2">
-        <Typography variant="h4" className="text-white mt-2">
-          257
-        </Typography>
+      <Box className="flex justify-between items-center sm:flex-row flex-col">
         <Typography
           variant="body2"
-          className={`text-green-500 bg-green-300/20 px-1 border text-xs rounded-xs flex items-center gap-1`}
+          className="text-[#aeb9e1] flex gap-2 items-center"
         >
-          16.8%
-          <BsArrowUpRight />
+          <HiMiniClock />
+          Completed tasks over time
         </Typography>
       </Box>
+      <Box className="flex justify-between items-center sm:flex-row flex-col">
+        <Box className="flex items-center gap-2">
+          <Typography variant="h5" className="text-white mt-2">
+            257
+          </Typography>
+          <Typography
+            variant="caption"
+            className={`text-green-500 bg-green-300/20 px-1 border text-xs rounded-xs flex items-center gap-1`}
+          >
+            16.8%
+            <BsArrowUpRight />
+          </Typography>
+        </Box>
+        <CustomDatePicker />
+      </Box>
 
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={200}>
         <AreaChart
           data={data}
-          margin={{ top: 40, right: 30, left: 0, bottom: 0 }}
+          margin={{ top: 40, right: 0, left: 0, bottom: 0 }}
         >
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -58,19 +63,13 @@ const CustomAreaChart = () => {
               <stop offset="95%" stopColor="#00f0ff" stopOpacity={0} />
             </linearGradient>
           </defs>
-          {/* Remove CartesianGrid */}
-          {/* Customizing the XAxis and YAxis */}
           <XAxis
             dataKey="date"
             tick={{ fill: "#aeb9e1" }}
-            axisLine={false} // Remove the axis line
-            tickLine={false} // Remove the tick lines
+            axisLine={false}
+            tickLine={false}
           />
-          <YAxis
-            tick={{ fill: "#aeb9e1" }}
-            axisLine={false} // Remove the axis line
-            tickLine={false} // Remove the tick lines
-          />
+          <YAxis tick={{ fill: "#aeb9e1" }} axisLine={false} tickLine={false} />
           <Tooltip cursor={{ stroke: "#aeb9e1", strokeWidth: 1 }} />
           <Area
             type="linear"

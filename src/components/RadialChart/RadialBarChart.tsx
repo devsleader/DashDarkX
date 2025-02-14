@@ -6,8 +6,8 @@ const MyResponsiveRadialBar = () => (
         valueFormat=" >-.2f"
         startAngle={-90}
         endAngle={180}
-        innerRadius={0.6}
-        padding={0.25}
+        innerRadius={0.7}
+        padding={0.38}
         margin={{ top: 0, right: 40, bottom: 0, left: 40 }}
         colors={["#00c2ff", "#0f43fb", "#cc3cfe"]}
         borderColor={{

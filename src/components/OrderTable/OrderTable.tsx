@@ -1,12 +1,5 @@
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import {
-  MenuItem,
-  Select,
-  Box,
-  IconButton,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { MenuItem, Select, Box, IconButton, Typography } from "@mui/material";
 import React, { useState } from "react";
 import {
   MdDelete,
@@ -15,8 +8,8 @@ import {
   MdModeEdit,
   MdSave,
 } from "react-icons/md";
-import { IoMdSearch } from "react-icons/io";
 import { FaCheckSquare, FaUser } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
 
 interface Order {
   id: number;
@@ -77,7 +70,7 @@ export default function OrdersTable(): React.JSX.Element {
             }
           />
         ) : (
-          <Typography variant="subtitle2">{params.row.order}</Typography>
+          <Typography variant="caption">{params.row.order}</Typography>
         );
       },
     },
@@ -110,9 +103,9 @@ export default function OrdersTable(): React.JSX.Element {
             />
           </>
         ) : (
-          <Box>
-            <Typography variant="subtitle2">{params.row.client}</Typography>
-            <Typography variant="body2" color="#aeb9e1">
+          <Box className="flex flex-col mt-1">
+            <Typography variant="caption">{params.row.client}</Typography>
+            <Typography variant="caption" color="#aeb9e1">
               {params.row.email}
             </Typography>
           </Box>
@@ -140,7 +133,7 @@ export default function OrdersTable(): React.JSX.Element {
             type="date"
           />
         ) : (
-          <Typography variant="subtitle2">{params.row.date}</Typography>
+          <Typography variant="caption">{params.row.date}</Typography>
         );
       },
     },
@@ -164,6 +157,7 @@ export default function OrdersTable(): React.JSX.Element {
               handleInputChange(params.row.id, "status", e.target.value)
             }
             fullWidth
+            sx={{ "& .MuiSelect-select": { color: "#aeb9e1" } }}
           >
             <MenuItem value="Pending">Pending</MenuItem>
             <MenuItem value="Delivered">Delivered</MenuItem>
@@ -171,7 +165,7 @@ export default function OrdersTable(): React.JSX.Element {
           </Select>
         ) : (
           <Typography
-            variant="body2"
+            variant="caption"
             className={`${
               params.row.status === "Pending"
                 ? "text-yellow-500 bg-yellow-300/20"
@@ -214,7 +208,7 @@ export default function OrdersTable(): React.JSX.Element {
             }
           />
         ) : (
-          <Typography variant="body2">{params.row.country}</Typography>
+          <Typography variant="caption">{params.row.country}</Typography>
         );
       },
     },
@@ -223,13 +217,13 @@ export default function OrdersTable(): React.JSX.Element {
       headerName: "Total",
       width: 150,
       renderCell: (params: GridRenderCellParams<Order>) => (
-        <Typography variant="subtitle2">{`$${params.row.total.toLocaleString()}`}</Typography>
+        <Typography variant="caption">{`$${params.row.total.toLocaleString()}`}</Typography>
       ),
     },
     {
       field: "actions",
       headerName: "",
-      width: 80,
+      width: 241,
       renderCell: (params: GridRenderCellParams<Order>) => {
         const isEditing = editRowId === params.row.id;
         return (
@@ -254,38 +248,21 @@ export default function OrdersTable(): React.JSX.Element {
 
   return (
     <Box>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        marginBottom="16px"
-      >
-        <Typography variant="h6" color="#aeb9e1">
+      <Box className="flex items-center justify-between gap-3 sm:flex-row flex-col sm:p-6 p-4">
+        <Typography variant="body1" color="#aeb9e1">
           Orders Status
         </Typography>
-        <Box display="flex" alignItems="center">
-          <TextField
-            size="small"
-            placeholder="Search for..."
-            variant="outlined"
-            value={searchQuery}
-            onChange={handleSearch}
-            InputProps={{
-              endAdornment: (
-                <IconButton>
-                  <IoMdSearch style={{ color: "#aeb9e1" }} />
-                </IconButton>
-              ),
-              style: { color: "#fff" },
-            }}
-            sx={{
-              backgroundColor: "#1e2749",
-              borderRadius: "8px",
-              marginRight: "16px",
-              input: { color: "#fff" },
-            }}
-          />
-          <button className="bg-gradient-to-br from-[#CB3CFF] to-[#7F25FB] text-white px-4 py-2 rounded-md cursor-pointer">
+        <Box className="flex items-center sm:flex-row flex-col gap-3">
+          <Box className="border border-[#374159] rounded-md p-2 text-white flex items-center">
+            <input
+              placeholder="Search for..."
+              value={searchQuery}
+              onChange={handleSearch}
+              className="focus:outline-none text-sm"
+            />
+            <IoSearch className="text-neutral-400 h-5 w-5" />
+          </Box>
+          <button className="bg-gradient-to-br from-[#CB3CFF] to-[#7F25FB] text-white px-4 py-2 rounded-md cursor-pointer text-sm font-bold">
             Create order
           </button>
         </Box>
@@ -302,20 +279,37 @@ export default function OrdersTable(): React.JSX.Element {
           },
         }}
         pageSizeOptions={[5]}
+        style={{
+          border: "none",
+          borderWidth: " 0px !important",
+        }}
         sx={{
           "& .MuiDataGrid-root": {
+            borderWidth: "0px !important",
+            borderColor: "transparent !important",
+          },
+          "& .css-1m3c45m-MuiDataGrid-root": {
+            borderWidth: "0px !important",
             border: "none",
+          },
+          "& .MuiDataGrid-withBorderColor": {
+            borderWidth: "0px !important",
+          },
+          "& .MuiDataGrid-menuIcon": {
+            display: "none !important",
+          },
+          "& .MuiDataGrid-iconButtonContainer": {
+            display: "none !important",
           },
           "& .MuiDataGrid-cell": {
             color: "#ffffff",
-            border: "none",
+            border: "none !important",
           },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: "#0a1739",
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-columnSeparator": {
-            display: "none",
+          "& .MuiDataGrid-row--borderBottom": {
+            backgroundColor: "transparent !important",
+            borderWidth: "0px !important",
+            border: "none !important",
+            color: "#ffffff",
           },
           "& .MuiDataGrid-row": {
             "&:nth-of-type(odd)": {
@@ -327,34 +321,27 @@ export default function OrdersTable(): React.JSX.Element {
           },
           "& .MuiDataGrid-footerContainer": {
             backgroundColor: "#0a1739",
-            color: "#ffffff",
             border: "none",
           },
           "& .MuiTablePagination-root": {
             color: "#ffffff",
           },
+          "& .MuiSvgIcon-root": {
+            color: "#ffffff",
+          },
           "& .MuiTablePagination-actions .MuiButtonBase-root": {
-            color: "#ffffff", 
+            color: "#ffffff",
             backgroundColor: "#c300ff",
             borderRadius: "50%",
           },
-          "& .Mui-selected": {
-            color: "#ffffff",
-            backgroundColor: "#c300ff !important", 
-            borderRadius: "50%", 
+          "& .MuiDataGrid-columnSeparator": {
+            display: "none !important",
           },
-          "& .MuiPaginationItem-root": {
-            color: "#ffffff",
+          "& .MuiDataGrid-scrollbar": {
+            display: "none !important",
           },
-          "& .MuiDataGrid-footerContainer .MuiPaginationItem-page.Mui-selected":
-            {
-              color: "#ffffff",
-              padding: "4px 8px",
-              backgroundColor: "#c300ff", 
-              borderRadius: "50%",
-            },
-          "& .MuiDataGrid-footerContainer .MuiPaginationItem-page": {
-            color: "#ffffff", 
+          "& .MuiDataGrid-filler": {
+            display: "none !important",
           },
         }}
       />

@@ -21,19 +21,19 @@ const darkTheme = createTheme({
     },
   },
   components: {
-    MuiDayCalendar: {
-      styleOverrides: {
-        root: {
-          '&.Mui-selected': {
-            backgroundColor: '#cc3cfe',
-            color: '#fff',
-          },
-          '&.Mui-selected:hover': {
-            backgroundColor: '#b134d9',
-          },
-        },
-      },
-    },
+    // MuiDayCalendar: {
+    //   styleOverrides: {
+    //     root: {
+    //       '&.Mui-selected': {
+    //         backgroundColor: '#cc3cfe',
+    //         color: '#fff',
+    //       },
+    //       '&.Mui-selected:hover': {
+    //         backgroundColor: '#b134d9',
+    //       },
+    //     },
+    //   },
+    // },
     MuiPaper: {
       styleOverrides: {
         root: {
@@ -41,32 +41,32 @@ const darkTheme = createTheme({
         },
       },
     },
-    MuiPickersMonth: {
-      styleOverrides: {
-        root: {
-          '&.Mui-selected': {
-            backgroundColor: '#cc3cfe',
-            color: '#fff',
-          },
-          '&.Mui-selected:hover': {
-            backgroundColor: '#b134d9',
-          },
-        },
-      },
-    },
-    MuiPickersYear: {
-      styleOverrides: {
-        root: {
-          '&.Mui-selected': {
-            backgroundColor: '#cc3cfe',
-            color: '#fff',
-          },
-          '&.Mui-selected:hover': {
-            backgroundColor: '#b134d9',
-          },
-        },
-      },
-    },
+    // MuiPickersMonth: {
+    //   styleOverrides: {
+    //     root: {
+    //       '&.Mui-selected': {
+    //         backgroundColor: '#cc3cfe',
+    //         color: '#fff',
+    //       },
+    //       '&.Mui-selected:hover': {
+    //         backgroundColor: '#b134d9',
+    //       },
+    //     },
+    //   },
+    // },
+    // MuiPickersYear: {
+    //   styleOverrides: {
+    //     root: {
+    //       '&.Mui-selected': {
+    //         backgroundColor: '#cc3cfe',
+    //         color: '#fff',
+    //       },
+    //       '&.Mui-selected:hover': {
+    //         backgroundColor: '#b134d9',
+    //       },
+    //     },
+    //   },
+    // },
   },
 });
 

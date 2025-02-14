@@ -11,7 +11,7 @@ const MyResponsiveBar = () => (
         ]}
         indexBy="month"
         margin={{ top: 20, right: 0, bottom: 50, left: 20 }}
-        padding={0.85}
+        padding={0.88}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: false }}
         colors={["#00c2ff", "#0f43fb", "#cc3cfe"]}

@@ -33,17 +33,20 @@ const Sidebar: React.FC = () => {
     setActive(text);
   };
   return (
-    <Box className="bg-[#081027] h-screen p-5 flex flex-col gap-7 border-r border-[#1e1e40] fixed">
+    <Box
+      sx={{ display: { lg: "flex", xs: "none" } }}
+      className="bg-[#081027] h-screen p-5 flex flex-col gap-7 border-r border-[#1e1e40] fixed"
+    >
       <Box className="flex items-center p-4 gap-2">
         <img src={Logo} alt="" className="h-7 w-7" />
-        <h2 className="text-2xl font-semibold text-white">Dashdark X</h2>
+        <h2 className="text-xl font-semibold text-white">Dashdark X</h2>
       </Box>
       <Box className="bg-[#0a1739] text-white border border-[#1a2541] rounded gap-2 flex items-center p-2">
-        <IoSearch className="text-neutral-400 h-6 w-7" />
+        <IoSearch className="text-neutral-400 h-5 w-5" />
         <input
           type="text"
-          className="focus:outline-none w-full"
-          placeholder="Search for.."
+          className="focus:outline-none"
+          placeholder="Search for..."
         />
       </Box>
       <Box>
@@ -51,10 +54,10 @@ const Sidebar: React.FC = () => {
           <Typography
             onClick={() => handleClick(item.text)}
             key={item.text}
-            variant="h6"
+            variant="body1"
             className={` ${
               active === item.text ? "text-[#cc3cfe]" : "text-white"
-            }  text-2xl flex items-center gap-4 p-3 cursor-pointer`}
+            }  text-lg flex items-center gap-2 p-2 cursor-pointer`}
           >
             {item.icon}
             {item.text}
