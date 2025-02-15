@@ -13,12 +13,10 @@ import { FaUser } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import { BsBellFill } from "react-icons/bs";
 import { MdHelpCenter, MdLogout, MdSwitchAccount } from "react-icons/md";
-// import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-// Define types for profile data
 interface UserProfile {
   name: string;
-  email: string; // Replace with actual email address
+  email: string; 
   avatarUrl: string;
 }
 
@@ -26,17 +24,17 @@ const ProfileDropdown: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [user] = useState<UserProfile>({
     name: "Mr.John",
-    email: "john.doe@example.com", // Replace with actual email address
+    email: "john.doe@example.com", 
     avatarUrl:
-      "https://themewagon.github.io/dashdarkX/assets/avater-CnKdNFHs.png", // Replace with actual avatar URL
+      "https://themewagon.github.io/dashdarkX/assets/avater-CnKdNFHs.png", 
   });
 
-  // Handle click to open the dropdown
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
-  // Handle closing the dropdown
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -93,7 +91,6 @@ const ProfileDropdown: React.FC = () => {
 
           <Divider />
 
-          {/* Dropdown options */}
           <MenuItem onClick={handleClose}>
             <ListItemIcon>
               <FaUser color="white" />

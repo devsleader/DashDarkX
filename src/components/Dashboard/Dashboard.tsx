@@ -64,8 +64,6 @@ const Dashboard: React.FC = () => {
           </Tooltip>
         </Box>
       </Box>
-
-      {/* Save Products, Stock Products, etc. */}
       <Box className="grid sm:grid-cols-2 gap-8 lg:grid-cols-4">
         <StatCard
           title="Save Products"
@@ -97,7 +95,6 @@ const Dashboard: React.FC = () => {
         />
       </Box>
 
-      {/* Chart Section */}
       <Box className="grid gap-8 lg:grid-cols-3 grid-cols-1 mt-4">
         <Box className=" bg-[#0a1739] rounded-lg sm:p-8 p-4 mt-4 ">
           <Box className="flex items-center justify-between">
@@ -171,9 +168,6 @@ const Dashboard: React.FC = () => {
                 </Typography>
               </Box>
             </Box>
-            {/* <Box className="">
-              <CustomDatePicker />
-            </Box> */}
           </Box>
           <Box className="h-[360px]">
             <MyResponsiveBar />

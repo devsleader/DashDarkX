@@ -32,7 +32,7 @@ const CustomDrawer :React.FC<CustomDrawerProps> = ({open, toggleDrawer}) => {
       setActive(text);
     };
   return (
-    <Drawer open={open} onClose={toggleDrawer(false)} sx={{display: {lg: "none", xs: "block"}}}>
+    <Drawer open={open}  onClose={() => toggleDrawer(false)} sx={{display: {lg: "none", xs: "block"}}}>
     <Box className="bg-[#081027] h-screen p-5 flex flex-col gap-7 border-r border-[#1e1e40]">
       <Box className="flex items-center p-4 gap-2">
         <img src={Logo} alt="" className="h-7 w-7" />

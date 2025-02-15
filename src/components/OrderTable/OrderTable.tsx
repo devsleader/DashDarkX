@@ -42,7 +42,7 @@ export default function OrdersTable(): React.JSX.Element {
     setSearchQuery(event.target.value.toLowerCase());
   };
 
-  // Filter rowsData based on the search query
+
   const filteredRows = rowsData.filter((row) =>
     Object.values(row).some((value) =>
       String(value).toLowerCase().includes(searchQuery)

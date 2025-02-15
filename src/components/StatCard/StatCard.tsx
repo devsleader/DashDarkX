@@ -8,7 +8,7 @@ interface StatCardProps {
   change: string | number;
   positive?: boolean;
   negative?: boolean;
-  icon: JSX.Element; // custom icon component for the card. For example, FaHeart in this case.
+  icon: JSX.Element; 
 }
 
 const StatCard: React.FC<StatCardProps> = ({

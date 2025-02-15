@@ -12,7 +12,6 @@ import BangFlag from "../../assets/bangladesh-flag.png";
 import ChinaFlag from "../../assets/china-flag.png";
 import TurkeyFlag from "../../assets/turkey-flag.png";
 
-// Define types for country data
 interface Country {
   code: string;
   name: string;
@@ -37,7 +36,7 @@ const CountryFlagDropdown: React.FC = () => {
 
   const handleSelectCountry = (country: Country) => {
     setSelectedCountry(country);
-    setAnchorEl(null); // Close the dropdown
+    setAnchorEl(null); 
   };
 
   const handleClose = () => {

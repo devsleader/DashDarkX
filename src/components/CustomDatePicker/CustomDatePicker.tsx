@@ -5,68 +5,28 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-// Create a dark theme
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#cc3cfe', // Similar magenta color for highlighting
+      main: '#cc3cfe', 
     },
     background: {
-      paper: '#0a1739', // Dark background for the calendar dropdown
+      paper: '#0a1739', 
     },
     text: {
-      primary: '#ffffff', // White text
-      secondary: '#9e9e9e', // Lighter text for unselected items
+      primary: '#ffffff', 
+      secondary: '#9e9e9e', 
     },
   },
   components: {
-    // MuiDayCalendar: {
-    //   styleOverrides: {
-    //     root: {
-    //       '&.Mui-selected': {
-    //         backgroundColor: '#cc3cfe',
-    //         color: '#fff',
-    //       },
-    //       '&.Mui-selected:hover': {
-    //         backgroundColor: '#b134d9',
-    //       },
-    //     },
-    //   },
-    // },
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: '#0a1739', // Calendar dropdown background color
+          backgroundColor: '#0a1739', 
         },
       },
     },
-    // MuiPickersMonth: {
-    //   styleOverrides: {
-    //     root: {
-    //       '&.Mui-selected': {
-    //         backgroundColor: '#cc3cfe',
-    //         color: '#fff',
-    //       },
-    //       '&.Mui-selected:hover': {
-    //         backgroundColor: '#b134d9',
-    //       },
-    //     },
-    //   },
-    // },
-    // MuiPickersYear: {
-    //   styleOverrides: {
-    //     root: {
-    //       '&.Mui-selected': {
-    //         backgroundColor: '#cc3cfe',
-    //         color: '#fff',
-    //       },
-    //       '&.Mui-selected:hover': {
-    //         backgroundColor: '#b134d9',
-    //       },
-    //     },
-    //   },
-    // },
   },
 });
 
@@ -79,26 +39,25 @@ export default function CustomDatePicker() {
             <DatePicker
               views={['year', 'month']}
               sx={{
-                // width: '100px', // Set width for the date picker
                 '.MuiInputBase-input': {
-                  color: '#aeb9e1', // Text color for input
-                  padding:"8px", //
+                  color: '#aeb9e1', 
+                  padding:"8px", 
                 },
                 '.MuiOutlinedInput-root': {
-                  backgroundColor: '#0a1330', // Input background color
-                  borderRadius: '8px', // Rounded corners for input
+                  backgroundColor: '#0a1330', 
+                  borderRadius: '8px', 
                 },
                 '.MuiOutlinedInput-notchedOutline': {
-                  border: 'none', // Remove border for input
+                  border: 'none', 
                 },
                 '.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
-                  border: 'none', // No border on hover
+                  border: 'none', 
                 },
                 '.MuiSvgIcon-root': {
-                  color: '#aeb9e1', // Calendar icon color
-                  backgroundColor: '#0a1330', // Icon button background color
-                  borderRadius: '50%', // Round icon button
-                  padding: '3px', // Add padding for the icon button
+                  color: '#aeb9e1', 
+                  backgroundColor: '#0a1330', 
+                  borderRadius: '50%', 
+                  padding: '3px', 
                 },
               }}
             />
